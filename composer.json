@@ -1,0 +1,16 @@
+{
+    "name": "tobexkee/phpmessagebus",
+    "description": "A simple event and commandbus implementation with middlewares for php",
+    "autoload": {
+        "psr-4": {
+            "Tobexkee\\Phpmessagebus\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Tobi Anifowose",
+            "email": "tobexkee@gmail.com"
+        }
+    ],
+    "require": {}
+}
