@@ -41,4 +41,5 @@ class MessageBus
             $middleware->handle($message, $this->prepareNextMiddleware($position + 1));
         };
     }
+
 }

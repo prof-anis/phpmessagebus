@@ -12,14 +12,16 @@ class EventBus extends MessageBus
         TriggerEventObserversMiddleware::class,
     ];
 
-    public function dispatch(EventInterface|string $event)
+    public static function dispatch(EventInterface|string $event, array $middlewares = []): void
     {
+        $bus = new self($middlewares);
+
         foreach (self::DEFAULT_MIDDLEWARES as $middleware) {
-            $this->addMiddleware(new $middleware);
+            $bus->addMiddleware(new $middleware);
         }
 
-        $this->handle(
-            $this->prepareEventForDispatch($event)
+        $bus->handle(
+            $bus->prepareEventForDispatch($event)
         );
     }
 
